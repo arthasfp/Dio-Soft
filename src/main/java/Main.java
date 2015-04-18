@@ -1,33 +1,62 @@
+import com.diosoft.training.ArrayHelperForPrim;
+
+import java.util.Arrays;
 
 public class Main {
+
+
     public static void main(String[] args) {
 
-//        Создайте Main class
+//      HW1  Создайте Main class
 //        - распечатайте в консоль все параметры которые передаются как параметры при запуске
 //        - распечатай количество переданных параметров
 
-        for (String par : args)
+        for(String par : args)
         {
             System.out.println(par);
         }
         System.out.println(args.length);
 
-//        Создайте POJO класс
-//        Создайте POJO класс, поля которого являются final (Person)
-//                Создайте Enum который характеризует экзмпляр POJO класса (Должность:DIRECTOR, DEVELOPER, QA)
-//        Добавьте Enum как поле в POJO
-//        Cгенерируйте equals/hashcode методы
-//        Создайте Main класс, в main методе которого проведите сравнение экземпляров по ссылке и через метод equals
+//       HW5   - Переписать свой Pojo в соответствии Builder паттерну
+//             - Написать метод  Type[] merge(Type[] leftArray, Type[] rightArray) в отдельном классе (ArrayHelper)
+//             - Создать ServiceDelegate для ArrayHelper
+//             - написать позитивные тесты
+//             - добавить проверку для каждого Person на не пустой и не null name
 
-        Person firstPerson = new Person("Jack", "London", 22, TYPE_OF.DEVELOPER);
-        Person secondPerson = new Person("Jack", "London", 25, TYPE_OF.DEVELOPER);
+        Person person = new Person.Builder()
+                .firstName("Jack")
+                .lastName("Donald")
+                .age(20)
+                .type(TYPE_OF.DEVELOPER)
+                .build();
+
+        Person personCopy = new Person.Builder(person)
+                .type(TYPE_OF.QA)
+                .build();
+
+        Person personCopy2 = new Person.Builder(person)
+                .age(34)
+                .type(TYPE_OF.DIRECTOR)
+                .build();
+
+        Person personCopy3 = new Person.Builder(person)
+                .firstName("Ivan")
+                .type(TYPE_OF.QA)
+                .build();
+
+        System.out.println(person == personCopy);
+        System.out.println(personCopy2.equals(personCopy3));
 
 
-        System.out.println(firstPerson);
-        System.out.println(secondPerson);
 
-        System.out.println("Are equals by '==': " + (firstPerson == secondPerson));
-        System.out.println("Are equals by method equals: " + firstPerson.equals(secondPerson));
+        Person [] personsFirst = {person, personCopy};
+        Person [] personsSecond = {personCopy2, personCopy3};
+
+
+        ArrayHelper helper = new ArrayHelper();
+
+        ServiceDelegate delegate = new ServiceDelegate(helper);
+        delegate.leftUnion(personsFirst, personsSecond);
 
     }
 }
