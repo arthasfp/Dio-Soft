@@ -38,8 +38,8 @@ public class LeftUnion {
         int count = 0;
         int [] temp = new int[rightArray.length + leftArray.length];
 
-        for (int i = 0; i < rightArray.length; i++) {  /*3, 5, 24, 4, 1, 2, 34, 45, 32, 5*/
-            for (int j = 0; j <leftArray.length ; j++) {  /*1, 5, 4, 23, 65, 32, 78*/
+        for (int i = 0; i < rightArray.length; i++) {
+            for (int j = 0; j <leftArray.length ; j++) {
                 if(rightArray[i] == leftArray[j]){
                     temp[i]=rightArray[i];
                     count++;

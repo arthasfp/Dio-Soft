@@ -1,5 +1,6 @@
-import com.diosoft.training.ArrayHelperForPrim;
 
+
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main {
@@ -11,11 +12,11 @@ public class Main {
 //        - распечатайте в консоль все параметры которые передаются как параметры при запуске
 //        - распечатай количество переданных параметров
 
-        for(String par : args)
-        {
-            System.out.println(par);
-        }
-        System.out.println(args.length);
+//        for(String par : args)
+//        {
+//            System.out.println(par);
+//        }
+//        System.out.println(args.length);
 
 //       HW5   - Переписать свой Pojo в соответствии Builder паттерну
 //             - Написать метод  Type[] merge(Type[] leftArray, Type[] rightArray) в отдельном классе (ArrayHelper)
@@ -44,19 +45,25 @@ public class Main {
                 .type(TYPE_OF.QA)
                 .build();
 
-        System.out.println(person == personCopy);
-        System.out.println(personCopy2.equals(personCopy3));
+        ArrayList<Person> personsFirst = new ArrayList<>();
+        personsFirst.add(person);
+        personsFirst.add(personCopy);
 
-
-
-        Person [] personsFirst = {person, personCopy};
-        Person [] personsSecond = {personCopy2, personCopy3};
-
+        ArrayList<Person> personsSecond = new ArrayList<>();
+        personsSecond.add(person);
+        personsSecond.add(personCopy2);
+        personsSecond.add(personCopy3);
 
         ArrayHelper helper = new ArrayHelper();
 
         ServiceDelegate delegate = new ServiceDelegate(helper);
         delegate.leftUnion(personsFirst, personsSecond);
+        System.out.println();
+        delegate.merge(personsFirst, personsSecond);
+        System.out.println();
+        delegate.innerUnion(personsFirst, personsSecond);
+        System.out.println();
+        delegate.outerUnion(personsFirst, personsSecond);
 
     }
 }

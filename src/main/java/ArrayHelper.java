@@ -1,45 +1,87 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
 
 // ResourceForDelegation
 
 public class ArrayHelper {
+    public ArrayList<Person> leftUnion(ArrayList<Person> personFirst, ArrayList<Person> personSecond){
+
+        ArrayList <Person> leftUnion = new ArrayList<>();
 
 
-    public Person[] leftUnion(Person[] personFirst, Person[] personSecond){
+        leftUnion.addAll(personFirst);
 
-        int count = 0;
-        Person[] temp = new Person[personFirst.length+personSecond.length];
-        for (int i = 0; i < personFirst.length; i++) {
-            for (int j = 0; j <personSecond.length ; j++) {
-                if (personFirst[j].equals(personSecond[i])) {
-                    temp[count] = personFirst[j];
-                    count++;
-                }
-            }
-        }
-//        System.out.println(Arrays.toString(temp));
-//        System.out.println(count);
-
-        Person[] leftUnion = new Person[personFirst.length + count];
-
-        for (int i = 0; i < personFirst.length; i++) {
-            leftUnion[i] = personFirst[i];
-
-        }
-        int conter = 0;
-        for (int i = 0; i < leftUnion.length ; i++) {
-            for (int j = 0; j < temp.length; j++) {
-                if(leftUnion[i].equals(null)){
-                    leftUnion[i] = temp[conter];
-                    conter++;}
-            }
-
-
+        Iterator<Person> itr = personFirst.iterator();
+        while (itr.hasNext())
+        {
+             Person person = itr.next();
+             if(personSecond.contains(person))
+             {
+                 leftUnion.add(person);
+             }
         }
 
-//        System.out.println(Arrays.toString(leftUnion));
         return leftUnion;
+}
+
+
+    public HashSet<Person> merge (ArrayList<Person> personFirst, ArrayList<Person> personSecond){
+
+        HashSet<Person> merge = new HashSet<>();
+
+        merge.addAll(personFirst);
+        merge.addAll(personSecond);
+
+        return merge;
     }
 
+    public HashSet<Person> innerUnion (ArrayList<Person> personFirst, ArrayList<Person> personSecond){
+
+        HashSet<Person> innerUnion = new HashSet<>();
+
+
+        Iterator<Person> itr = personFirst.iterator();
+        while (itr.hasNext())
+        {
+            Person person = itr.next();
+            if(personSecond.contains(person))
+            {
+                innerUnion.add(person);
+            }
+        }
+
+        return innerUnion;
+    }
+
+    public HashSet<Person> outerUnion (ArrayList<Person> personFirst, ArrayList<Person> personSecond){
+
+        HashSet<Person> outerUnion = new HashSet<>();
+
+        Iterator<Person> itr = personFirst.iterator();
+        while (itr.hasNext())
+        {
+            Person person = itr.next();
+
+            if(!(personSecond.contains(person)))
+            {
+                outerUnion.add(person);
+            }
+        }
+
+        Iterator<Person> iter = personSecond.iterator();
+        while (iter.hasNext())
+        {
+            Person person = iter.next();
+
+            if(!(personFirst.contains(person)))
+            {
+                outerUnion.add(person);
+            }
+        }
+
+        return outerUnion;
+    }
 
 }
