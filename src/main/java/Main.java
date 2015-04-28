@@ -50,7 +50,6 @@ public class Main {
         personsFirst.add(personCopy);
 
         ArrayList<Person> personsSecond = new ArrayList<>();
-        personsSecond.add(person);
         personsSecond.add(personCopy2);
         personsSecond.add(personCopy3);
 
@@ -64,6 +63,12 @@ public class Main {
         delegate.innerUnion(personsFirst, personsSecond);
         System.out.println();
         delegate.outerUnion(personsFirst, personsSecond);
+
+
+        Event event = new Event.Builder()
+                .description("HW")
+                .build();
+        System.out.println(event);
 
     }
 }
