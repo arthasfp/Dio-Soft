@@ -1,4 +1,3 @@
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
@@ -20,7 +19,7 @@ public class ArrayHelperTest {
         personsFirst.add(new Person.Builder()
                 .firstName("Jack")
                 .lastName("Donald")
-                .age(20)
+                .email("IamJack@gmail.com")
                 .type(TYPE_OF.DEVELOPER)
                 .build()
         );
@@ -28,7 +27,7 @@ public class ArrayHelperTest {
         personsFirst.add(new Person.Builder()
                 .firstName("Jack")
                 .lastName("Donald")
-                .age(20)
+                .email("IamJack@gmail.com")
                 .type(TYPE_OF.QA)
                 .build()
         );
@@ -38,14 +37,14 @@ public class ArrayHelperTest {
         personsSecond.add(new Person.Builder()
                 .firstName("Jack")
                 .lastName("Donald")
-                .age(34)
+                .email("IamDir@gmail.com")
                 .type(TYPE_OF.DIRECTOR)
                 .build());
 
         personsSecond.add(new Person.Builder()
                 .firstName("Ivan")
                 .lastName("Donald")
-                .age(20)
+                .email("IamJack@gmail.com")
                 .type(TYPE_OF.QA)
                 .build());
 
@@ -54,14 +53,14 @@ public class ArrayHelperTest {
         expectedValue.add(new Person.Builder()
                 .firstName("Jack")
                 .lastName("Donald")
-                .age(20)
+                .email("IamJack@gmail.com")
                 .type(TYPE_OF.DEVELOPER)
                 .build());
 
         expectedValue.add(new Person.Builder()
                 .firstName("Jack")
                 .lastName("Donald")
-                .age(20)
+                .email("IamJack@gmail.com")
                 .type(TYPE_OF.QA)
                 .build());
 
@@ -85,7 +84,7 @@ public class ArrayHelperTest {
         personsFirst.add(new Person.Builder()
                 .firstName("Jack")
                 .lastName("Donald")
-                .age(20)
+                .email("IamJack@gmail.com")
                 .type(TYPE_OF.DEVELOPER)
                 .build()
         );
@@ -93,7 +92,7 @@ public class ArrayHelperTest {
         personsFirst.add(new Person.Builder()
                 .firstName("Jack")
                 .lastName("Donald")
-                .age(20)
+                .email("IamJack@gmail.com")
                 .type(TYPE_OF.QA)
                 .build()
         );
@@ -103,14 +102,14 @@ public class ArrayHelperTest {
         personsSecond.add(new Person.Builder()
                 .firstName("Jack")
                 .lastName("Donald")
-                .age(34)
+                .email("IamDir@gmail.com")
                 .type(TYPE_OF.DIRECTOR)
                 .build());
 
         personsSecond.add(new Person.Builder()
                 .firstName("Ivan")
                 .lastName("Donald")
-                .age(20)
+                .email("IamJack@gmail.com")
                 .type(TYPE_OF.QA)
                 .build());
 
@@ -119,28 +118,28 @@ public class ArrayHelperTest {
         expectedValue.add(new Person.Builder()
                 .firstName("Jack")
                 .lastName("Donald")
-                .age(20)
+                .email("IamJack@gmail.com")
                 .type(TYPE_OF.DEVELOPER)
                 .build());
 
         expectedValue.add(new Person.Builder()
                 .firstName("Jack")
                 .lastName("Donald")
-                .age(20)
+                .email("IamJack@gmail.com")
                 .type(TYPE_OF.QA)
                 .build());
 
         expectedValue.add(new Person.Builder()
                 .firstName("Jack")
                 .lastName("Donald")
-                .age(34)
+                .email("IamDir@gmail.com")
                 .type(TYPE_OF.DIRECTOR)
                 .build());
 
         expectedValue.add(new Person.Builder()
                 .firstName("Ivan")
                 .lastName("Donald")
-                .age(20)
+                .email("IamJack@gmail.com")
                 .type(TYPE_OF.QA)
                 .build());
 
@@ -162,7 +161,7 @@ public class ArrayHelperTest {
         personsFirst.add(new Person.Builder()
                 .firstName("Jack")
                 .lastName("Donald")
-                .age(20)
+                .email("IamJack@gmail.com")
                 .type(TYPE_OF.DEVELOPER)
                 .build()
         );
@@ -170,7 +169,7 @@ public class ArrayHelperTest {
         personsFirst.add(new Person.Builder()
                 .firstName("Jack")
                 .lastName("Donald")
-                .age(20)
+                .email("IamJack@gmail.com")
                 .type(TYPE_OF.QA)
                 .build()
         );
@@ -180,14 +179,14 @@ public class ArrayHelperTest {
         personsSecond.add(new Person.Builder()
                 .firstName("Jack")
                 .lastName("Donald")
-                .age(34)
+                .email("IamDir@gmail.com")
                 .type(TYPE_OF.DIRECTOR)
                 .build());
 
         personsSecond.add(new Person.Builder()
                 .firstName("Ivan")
                 .lastName("Donald")
-                .age(20)
+                .email("IamJack@gmail.com")
                 .type(TYPE_OF.QA)
                 .build());
 
@@ -211,7 +210,7 @@ public class ArrayHelperTest {
         personsFirst.add(new Person.Builder()
                 .firstName("Jack")
                 .lastName("Donald")
-                .age(20)
+                .email("IamJack@gmail.com")
                 .type(TYPE_OF.DEVELOPER)
                 .build()
         );
@@ -219,7 +218,7 @@ public class ArrayHelperTest {
         personsFirst.add(new Person.Builder()
                 .firstName("Jack")
                 .lastName("Donald")
-                .age(20)
+                .email("IamJack@gmail.com")
                 .type(TYPE_OF.QA)
                 .build()
         );
@@ -229,14 +228,14 @@ public class ArrayHelperTest {
         personsSecond.add(new Person.Builder()
                 .firstName("Jack")
                 .lastName("Donald")
-                .age(34)
+                .email("IamDir@gmail.com")
                 .type(TYPE_OF.DIRECTOR)
                 .build());
 
         personsSecond.add(new Person.Builder()
                 .firstName("Ivan")
                 .lastName("Donald")
-                .age(20)
+                .email("IamJack@gmail.com")
                 .type(TYPE_OF.QA)
                 .build());
 
@@ -245,28 +244,28 @@ public class ArrayHelperTest {
         expectedValue.add(new Person.Builder()
                 .firstName("Jack")
                 .lastName("Donald")
-                .age(20)
+                .email("IamJack@gmail.com")
                 .type(TYPE_OF.DEVELOPER)
                 .build());
 
         expectedValue.add(new Person.Builder()
                 .firstName("Jack")
                 .lastName("Donald")
-                .age(20)
+                .email("IamJack@gmail.com")
                 .type(TYPE_OF.QA)
                 .build());
 
         expectedValue.add(new Person.Builder()
                 .firstName("Jack")
                 .lastName("Donald")
-                .age(34)
+                .email("IamDir@gmail.com")
                 .type(TYPE_OF.DIRECTOR)
                 .build());
 
         expectedValue.add(new Person.Builder()
                 .firstName("Ivan")
                 .lastName("Donald")
-                .age(20)
+                .email("IamJack@gmail.com")
                 .type(TYPE_OF.QA)
                 .build());
 
