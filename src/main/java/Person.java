@@ -11,14 +11,14 @@ import java.util.Arrays;
 public class Person {
     private final String firstName;
     private final String lastName;
-    private final int age;
+    private final String email;
     private final TYPE_OF type;
 
 
     private Person(Builder builder) {
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
-        this.age = builder.age;
+        this.email = builder.email;
         this.type = builder.type;
     }
 
@@ -32,13 +32,14 @@ public class Person {
         return lastName;
     }
 
-    public int getAge() {
-        return age;
+    public String getEmail() {
+        return email;
     }
 
     public TYPE_OF getType() {
         return type;
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -47,7 +48,7 @@ public class Person {
 
         Person person = (Person) o;
 
-        if (age != person.age) return false;
+        if (email != null ? !email.equals(person.email) : person.email != null) return false;
         if (firstName != null ? !firstName.equals(person.firstName) : person.firstName != null) return false;
         if (lastName != null ? !lastName.equals(person.lastName) : person.lastName != null) return false;
         if (type != person.type) return false;
@@ -59,7 +60,7 @@ public class Person {
     public int hashCode() {
         int result = firstName != null ? firstName.hashCode() : 0;
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
-        result = 31 * result + age;
+        result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (type != null ? type.hashCode() : 0);
         return result;
     }
@@ -67,19 +68,17 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "FirstName='" + firstName + '\'' +
-                ", LastName='" + lastName + '\'' +
-                ", age=" + age +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
                 ", type=" + type +
                 '}';
     }
 
-
-
     public static class Builder {
         private  String firstName;
         private  String lastName;
-        private  int age;
+        private  String email;
         private  TYPE_OF type;
 
         public Builder() {
@@ -88,7 +87,7 @@ public class Person {
         public Builder(Person original) {
             this.firstName = original.firstName;
             this.lastName = original.lastName;
-            this.age = original.age;
+            this.email = original.email;
             this.type = original.type;
         }
 
@@ -102,8 +101,8 @@ public class Person {
             return this;
         }
 
-        public Builder age(int age) {
-            this.age = age;
+        public Builder email(String email) {
+            this.email = email;
             return this;
         }
 
