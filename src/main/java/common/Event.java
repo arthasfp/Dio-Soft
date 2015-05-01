@@ -1,17 +1,34 @@
-import java.util.Date;
+package common;
+
 import java.util.GregorianCalendar;
 import java.util.List;
 
 public class Event {
 
+    private final String title;
     private final String description;
     private final List<Person> attenders;
-    private final GregorianCalendar gregorianCalendar;
+    private final GregorianCalendar startDate;
+    private final GregorianCalendar endDate;
 
     public Event(Builder builder) {
+        this.title = builder.title;
         this.description = builder.description;
         this.attenders = builder.attenders;
-        this.gregorianCalendar = builder.gregorianCalendar;
+        this.startDate = builder.startDate;
+        this.endDate = builder.endDate;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public GregorianCalendar getStartDate() {
+        return startDate;
+    }
+
+    public GregorianCalendar getEndDate() {
+        return endDate;
     }
 
     public String getDescription() {
@@ -22,10 +39,6 @@ public class Event {
         return attenders;
     }
 
-    public GregorianCalendar getDate() {
-        return gregorianCalendar;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -34,42 +47,58 @@ public class Event {
         Event event = (Event) o;
 
         if (attenders != null ? !attenders.equals(event.attenders) : event.attenders != null) return false;
-        if (gregorianCalendar != null ? !gregorianCalendar.equals(event.gregorianCalendar) : event.gregorianCalendar != null) return false;
         if (description != null ? !description.equals(event.description) : event.description != null) return false;
+        if (endDate != null ? !endDate.equals(event.endDate) : event.endDate != null) return false;
+        if (startDate != null ? !startDate.equals(event.startDate) : event.startDate != null) return false;
+        if (title != null ? !title.equals(event.title) : event.title != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = description != null ? description.hashCode() : 0;
+        int result = title != null ? title.hashCode() : 0;
+        result = 31 * result + (description != null ? description.hashCode() : 0);
         result = 31 * result + (attenders != null ? attenders.hashCode() : 0);
-        result = 31 * result + (gregorianCalendar != null ? gregorianCalendar.hashCode() : 0);
+        result = 31 * result + (startDate != null ? startDate.hashCode() : 0);
+        result = 31 * result + (endDate != null ? endDate.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
         return "Event{" +
-                "description='" + description + '\'' +
+                "title='" + title + '\'' +
+                ", description='" + description + '\'' +
                 ", attenders=" + attenders +
-                ", date=" + gregorianCalendar +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
                 '}';
     }
 
     public static class Builder
     {
+        private String title;
         private String description;
         private List<Person> attenders;
-        private GregorianCalendar gregorianCalendar;
+        private GregorianCalendar startDate;
+        private GregorianCalendar endDate;
 
         public Builder() {
         }
 
         public Builder(Event original) {
-            this.gregorianCalendar = original.gregorianCalendar;
+            this.title = original.title;
             this.attenders = original.attenders;
             this.description = original.description;
+            this.startDate = original.startDate;
+            this.endDate = original.endDate;
+        }
+
+        public Builder title(String title)
+        {
+            this.title = title;
+            return this;
         }
 
         public Builder description(String description)
@@ -84,9 +113,15 @@ public class Event {
             return this;
         }
 
-        public Builder gregorianCalendar(GregorianCalendar gregorianCalendar)
+        public Builder startDate (GregorianCalendar startDate)
         {
-            this.gregorianCalendar = gregorianCalendar;
+            this.startDate = startDate;
+            return this;
+        }
+
+        public Builder endDate (GregorianCalendar endDate)
+        {
+            this.endDate = endDate;
             return this;
         }
 

@@ -1,7 +1,10 @@
 
 
+import common.Event;
+import common.Person;
+import common.TYPE_OF;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Main {
 
@@ -22,12 +25,12 @@ public class Main {
 //             - Написать метод  Type[] merge(Type[] leftArray, Type[] rightArray) в отдельном классе (ArrayHelper)
 //             - Создать ServiceDelegate для ArrayHelper
 //             - написать позитивные тесты
-//             - добавить проверку для каждого Person на не пустой и не null name
+//             - добавить проверку для каждого common.Person на не пустой и не null name
 
         Person person = new Person.Builder()
                 .firstName("Jack")
                 .lastName("Donald")
-                .age(20)
+                .email("IamJack@gmail.com")
                 .type(TYPE_OF.DEVELOPER)
                 .build();
 
@@ -36,7 +39,7 @@ public class Main {
                 .build();
 
         Person personCopy2 = new Person.Builder(person)
-                .age(34)
+                .email("IamDir@gmail.com")
                 .type(TYPE_OF.DIRECTOR)
                 .build();
 
