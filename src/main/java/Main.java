@@ -1,31 +1,26 @@
 
 
+import additional.ArrayHelper;
+import additional.ServiceDelegate;
 import common.Event;
 import common.Person;
 import common.TYPE_OF;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 public class Main {
 
+    public static final Logger logger = Logger.getAnonymousLogger();
 
     public static void main(String[] args) {
 
-//      HW1  Создайте Main class
-//        - распечатайте в консоль все параметры которые передаются как параметры при запуске
-//        - распечатай количество переданных параметров
-
-//        for(String par : args)
-//        {
-//            System.out.println(par);
-//        }
-//        System.out.println(args.length);
-
-//       HW5   - Переписать свой Pojo в соответствии Builder паттерну
-//             - Написать метод  Type[] merge(Type[] leftArray, Type[] rightArray) в отдельном классе (ArrayHelper)
-//             - Создать ServiceDelegate для ArrayHelper
-//             - написать позитивные тесты
-//             - добавить проверку для каждого common.Person на не пустой и не null name
+        for(String par : args)
+        {
+            System.out.println(par);
+        }
+        System.out.println(args.length);
 
         Person person = new Person.Builder()
                 .firstName("Jack")
@@ -73,5 +68,15 @@ public class Main {
                 .build();
         System.out.println(event);
 
+
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        logger.info("Service activated");
     }
 }
+
+
+
+
+
+
+

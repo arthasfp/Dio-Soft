@@ -1,3 +1,5 @@
+package additional;
+
 public class MyException extends Exception{
     private final String errorCode;
 

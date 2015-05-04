@@ -1,3 +1,5 @@
+package additional;
+
 import java.util.Arrays;
 
 public class LeftUnion {
