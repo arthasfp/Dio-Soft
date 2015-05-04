@@ -5,11 +5,10 @@ import common.Person;
 import datastore.CalendarDataStore;
 
 import java.rmi.RemoteException;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.util.logging.Logger;
+
+import static java.util.Arrays.asList;
 
 public class CalendarServiceImpl implements CalendarService {
 
@@ -43,5 +42,24 @@ public class CalendarServiceImpl implements CalendarService {
     @Override
     public Event remove(String title) throws RemoteException {
         return dataStore.remove(title);
+    }
+
+    @Override
+    public Event addAttender(String title, Person... persons) throws RemoteException {
+        Event oldEvent = dataStore.remove(title);
+        if (oldEvent == null)
+        {
+            return null;
+        }
+        List<Person> newAttenders = new ArrayList<>(oldEvent.getAttenders());
+        newAttenders.addAll(asList(persons));
+
+        Event newEvent = new Event.Builder(oldEvent)
+                .attenders(newAttenders)
+                .build();
+        dataStore.addEventToMap(newEvent);
+
+        return newEvent;
+
     }
 }

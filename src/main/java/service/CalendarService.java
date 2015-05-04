@@ -20,4 +20,6 @@ public interface CalendarService extends Remote {
     Event searchEvent(String title)throws RemoteException;
 
     Event remove (String title) throws RemoteException;
+
+    Event addAttender (String title, Person... persons ) throws RemoteException;
 }
