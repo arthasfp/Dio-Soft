@@ -13,9 +13,9 @@ import java.util.List;
 
 public interface CalendarService extends Remote {
 
-    void addEvent(Event event)throws RemoteException;
 
-    Event createEvent(String title, String description, GregorianCalendar startDate, GregorianCalendar endDate, List<Person> attenders) throws RemoteException;
+
+    void createEvent(String title, String description, GregorianCalendar startDate, GregorianCalendar endDate, List<Person> attenders) throws RemoteException;
 
     Event searchEvent(String title)throws RemoteException;
 

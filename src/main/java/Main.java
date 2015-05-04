@@ -6,6 +6,8 @@ import common.Event;
 import common.Person;
 import common.TYPE_OF;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import service.CalendarService;
+import service.CalendarServiceImpl;
 
 import java.util.ArrayList;
 import java.util.logging.Logger;
@@ -70,6 +72,7 @@ public class Main {
 
 
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        CalendarServiceImpl calendarService = context.getBean("calendarService", CalendarServiceImpl.class);
         logger.info("Service activated");
     }
 }

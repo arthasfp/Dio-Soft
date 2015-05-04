@@ -21,23 +21,27 @@ public class CalendarServiceImpl implements CalendarService {
     }
 
 
-    @Override
-    public void addEvent(Event event) throws RemoteException {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
 
     @Override
-    public Event createEvent(String title, String description, GregorianCalendar startDate, GregorianCalendar endDate, List<Person> attenders) throws RemoteException {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    public void createEvent(String title, String description, GregorianCalendar startDate, GregorianCalendar endDate, List<Person> attenders) throws RemoteException {
+        dataStore.addEventToMap(new Event.Builder()
+                .title(title)
+                .description(description)
+                .startDate(startDate)
+                .endDate(endDate)
+                .attenders(attenders)
+                .build());
+
+        logger.info("Published even on service side " + title);
     }
 
     @Override
     public Event searchEvent(String title) throws RemoteException {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return dataStore.getEvent(title);
     }
 
     @Override
     public Event remove(String title) throws RemoteException {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return dataStore.remove(title);
     }
 }

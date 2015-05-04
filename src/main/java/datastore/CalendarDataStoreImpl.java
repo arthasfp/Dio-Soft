@@ -2,19 +2,28 @@ package datastore;
 
 import common.Event;
 
+import java.util.HashMap;
+
 public class CalendarDataStoreImpl implements CalendarDataStore {
+
+    HashMap <String, Event> calendarSource = new HashMap<>();
+
     @Override
     public void addEventToMap(Event event) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        calendarSource.put(event.getTitle(), event);
+
     }
 
     @Override
     public Event remove(String title) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        Event event = calendarSource.get(title);
+        calendarSource.remove(title);
+
+        return event;
     }
 
     @Override
     public Event getEvent(String title) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return calendarSource.get(title);
     }
 }
