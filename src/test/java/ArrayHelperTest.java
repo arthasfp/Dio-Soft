@@ -2,7 +2,8 @@ import additional.ArrayHelper;
 import additional.MyException;
 import common.Person;
 import common.TYPE_OF;
-import org.testng.annotations.Test;
+import org.junit.Test;
+
 import static org.testng.Assert.assertEquals;
 
 import java.util.ArrayList;
