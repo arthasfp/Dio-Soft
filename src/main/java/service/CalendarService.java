@@ -22,4 +22,6 @@ public interface CalendarService extends Remote {
     Event remove (String title) throws RemoteException;
 
     Event addAttender (String title, Person... persons ) throws RemoteException;
+
+    boolean isPersonAvaliable(Person person, GregorianCalendar desireDate);
 }

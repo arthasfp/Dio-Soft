@@ -62,4 +62,16 @@ public class CalendarServiceImpl implements CalendarService {
         return newEvent;
 
     }
+
+    @Override
+    public boolean isPersonAvaliable(Person person, GregorianCalendar desireDate) {
+        Event event = dataStore.getByDate(desireDate);
+        boolean isPersonAvaliable = false;
+
+        if(event.getAttenders().contains(person))
+        {
+            isPersonAvaliable = true;
+        }
+        return isPersonAvaliable;
+    }
 }
